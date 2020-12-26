@@ -123,3 +123,32 @@ cv2.destroyAllWindows()
 `  frame = cv2.resize(frame, dsize=(0, 0), fx=0.5, fy=0.5)` 동영상 파일의 비율을 조절할 수 있다.
 
 ​	`cv2.waitKey(time)` time마다 프레임을 재생한다.
+
+
+
+## 대칭 
+
+``` python
+import cv2
+
+image = cv2.imread("IMAGE/nanhee.jpg", cv2.IMREAD_COLOR)
+image_flip_1 = cv2.flip(image, 0) # 상하
+image_flip_2 = cv2.flip(image, 1) # 좌우
+
+cv2.imshow("image", image)
+cv2.imshow("image_flip_1", image_flip_1)
+cv2.imshow("image_flip_2", image_flip_2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+설정
+
+​	`cv2.flip(이미지, 대칭 방법)` 이미지를 방법에 따라서 대칭으로 만들 수 있다.
+
+​	대칭 방법이 `0` 이면 상하, `1` 이면 좌우 방향으로 대칭
+
+
+
+## 회전
