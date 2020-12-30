@@ -108,8 +108,6 @@ cv2.destroyAllWindows()
 ​	`capture = cv2.VideoCapture("경로")` 동영상 파일에서 프레임을 받아온다.
 ​	상대 경로로 테스트 해보니 오류 발생, 절대 경로의 동영상 파일을 받아왔다.
 
-
-
 출력
 
 ​	`capture.get(속성)` 으로 capture의 속성을 사용할 수 있다.
@@ -239,3 +237,15 @@ cv2.destroyAllWindows()
 ​	코너 검출을 통해서 `corners`가 반환되고, 배열안에 코너들의 좌표가 들어있다.
 
 ​	`cv2.circle(이미지, 중심 과표, 반지름, BGR, 두께)`로 이미지에 원으로 코너를 그려준다.
+
+
+
+## 직선 검출
+
+```python
+import cv2
+
+
+```
+
+설정
