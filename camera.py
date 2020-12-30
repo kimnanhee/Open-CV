@@ -1,3 +1,4 @@
+# 카메라 출력
 import cv2
 
 capture = cv2.VideoCapture(0)

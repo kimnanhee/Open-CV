@@ -1,3 +1,4 @@
+# 코너 검출
 import cv2
 
 image_color = cv2.imread("IMAGE/stair.jpg", cv2.IMREAD_COLOR)

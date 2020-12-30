@@ -1,3 +1,4 @@
+# 이미지 출력
 import cv2
 
 image = cv2.imread("IMAGE/nanhee.jpg", cv2.IMREAD_ANYCOLOR) # 원본

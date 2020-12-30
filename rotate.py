@@ -1,3 +1,4 @@
+# 회전
 import cv2
 
 image = cv2.imread("IMAGE/nanhee.jpg")

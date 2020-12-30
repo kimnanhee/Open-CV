@@ -1,3 +1,4 @@
+# 가장자리 검출
 import cv2
 
 image = cv2.imread("IMAGE/nanhee.jpg", cv2.IMREAD_COLOR)

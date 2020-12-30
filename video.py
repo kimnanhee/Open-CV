@@ -1,7 +1,8 @@
+# 동영상 출력
 import cv2
 
 # capture = cv2.VideoCapture("IMAGE/motor.mp4") # 상대 경로
-capture = cv2.VideoCapture("C:/Users/DSM/Desktop/CV/practice/IMAGE/motor.mp4") # 절대 경로
+capture = cv2.VideoCapture("C:/Users/DSM/Desktop/CV/IMAGE/motor.mp4") # 절대 경로
 
 while True:
     if(capture.get(cv2.CAP_PROP_POS_FRAMES) == capture.get(cv2.CAP_PROP_FRAME_COUNT)):

@@ -1,3 +1,4 @@
+# 사진 크기 설정
 import cv2
 
 image = cv2.imread("IMAGE/nanhee.jpg")
