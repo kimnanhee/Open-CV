@@ -153,6 +153,31 @@ cv2.destroyAllWindows()
 
 ## 회전
 
+```python
+import cv2
+
+image = cv2.imread("IMAGE/nanhee.jpg")
+
+height, width, channel = image.shape
+matrix = cv2.getRotationMatrix2D((width/2, height/2), 90, 1) # 회전 배열
+# (중심점 x좌표, 중심점 y좌표), 회전할 각도, 확대 비율
+image_rotate = cv2.warpAffine(image, matrix, (width, height))
+
+cv2.imshow("image", image)
+cv2.imshow("image_rotate", image_rotate)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+설정
+
+​	`matrix` 에 `회전 배열` 을 저장한다.
+
+​	`cv2.getRotationMatrix2D((중심점 x좌표, 중심점 y좌표), 회전할 각도, 확대 비율)` 
+
+​	`cv2.warpAffine(이미지, 회전 배열, (이미지 너비, 이미지 높이))` 결과 이미지를 배열에 따라 회전시키고, 너비와 높이를 설정한다.
+
 
 
 ## 가장자리 검출
@@ -176,3 +201,41 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
+설정
+
+​	Canny - `cv2.Canny(이미지, 임계값1, 임계값2, 커널 크기, L2그라디언트)`
+
+​	Sobel - `cv2.Sobel(그레이스케일 이미지, 정밀도, x방향 미분, y방향 미분, 커널, 배율 델타, 픽셀, 외삼법)`
+
+​	Laplacian - `cv2.Laplacian(그레이스케일 이미지, 정밀도 커널, 배율, 델타, 픽셀 외삼법)`
+
+
+
+## 코너 검출
+
+```python
+import cv2
+
+image_color = cv2.imread("IMAGE/stair.jpg", cv2.IMREAD_COLOR)
+
+image_gray = cv2.cvtColor(image_color, cv2.COLOR_RGB2GRAY) # 회색조로 변경
+corners = cv2.goodFeaturesToTrack(image_gray, 100, 0.01, 5, blockSize=3, useHarrisDetector=True, k=0.03) # 코너 검출
+
+for i in corners:
+    cv2.circle(image_color, tuple(i[0]), 3, (0, 0, 255), 2) # 원으로 지점 표시
+
+cv2.imshow("image", image_color)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+설정
+
+​	`cv2.goodFeaturesToTrack()`으로 윤곽선들의 이미지에서 코너를 검출한다.
+
+​	`cv2.goodFeaturesToTrack(이미지, 코너 최댓값, 코너 품질, 회소 거리, 마스크, 블록 크기, 해리스 코너 검출기 유/무, 해리스 코너 개수)`
+
+​	코너 검출을 통해서 `corners`가 반환되고, 배열안에 코너들의 좌표가 들어있다.
+
+​	`cv2.circle(이미지, 중심 과표, 반지름, BGR, 두께)`로 이미지에 원으로 코너를 그려준다.
